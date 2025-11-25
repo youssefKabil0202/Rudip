@@ -1,0 +1,163 @@
+<div class="container mt-4">
+  <!-- Header -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>
+          <i class="bi bi-qr-code-scan me-2"></i>
+          Scanner QR Code
+        </h2>
+        <button class="btn btn-outline-secondary" (click)="goBack()">
+          <i class="bi bi-arrow-left"></i> Retour
+        </button>
+      </div>
+      <p class="text-muted">Scannez le QR code d'une invitation pour valider la présence</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="row">
+    <!-- QR Scanner Section -->
+    <div class="col-lg-8 mb-4">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title mb-0">
+            <i class="bi bi-camera"></i> Scanner
+          </h5>
+        </div>
+        <div class="card-body text-center">
+
+          <!-- Scanner Controls -->
+          <div class="mb-3">
+            <button
+              *ngIf="!isScanning"
+              class="btn btn-success btn-lg"
+              (click)="startScanning()">
+              <i class="bi bi-play-circle"></i> Démarrer le scan
+            </button>
+
+            <button
+              *ngIf="isScanning"
+              class="btn btn-warning"
+              (click)="stopScanning()">
+              <i class="bi bi-stop-circle"></i> Arrêter le scan
+            </button>
+          </div>
+
+          <!-- Camera Permission Error -->
+          <div *ngIf="!hasCameraPermission" class="alert alert-warning">
+            <i class="bi bi-exclamation-triangle"></i>
+            <strong>Accès à la caméra refusé</strong>
+            <p class="mb-0">Veuillez autoriser l'accès à la caméra pour utiliser le scanner.</p>
+          </div>
+
+          <!-- QR Scanner Container -->
+          <div id="qr-reader" class="mb-3"></div>
+
+          <!-- Processing Indicator -->
+          <div *ngIf="isProcessing" class="alert alert-info">
+            <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+            Validation du QR code en cours...
+          </div>
+
+          <!-- Scan Error -->
+          <div *ngIf="scanError && !isProcessing" class="alert alert-danger">
+            <i class="bi bi-x-circle"></i>
+            {{ scanError }}
+          </div>
+
+          <!-- Scan Result -->
+          <div *ngIf="scanResult && !currentInvitation" class="alert alert-secondary">
+            <i class="bi bi-info-circle"></i>
+            Code scanné: <code>{{ scanResult }}</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Invitation Details Section -->
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-header bg-success text-white">
+          <h5 class="card-title mb-0">
+            <i class="bi bi-person-check"></i> Détails de l'invitation
+          </h5>
+        </div>
+        <div class="card-body">
+
+          <!-- No Invitation Scanned -->
+          <div *ngIf="!currentInvitation" class="text-center text-muted py-4">
+            <i class="bi bi-qr-code display-4"></i>
+            <p class="mt-2">Aucune invitation scannée</p>
+            <small>Scannez un QR code pour voir les détails ici</small>
+          </div>
+
+          <!-- Invitation Details -->
+          <div *ngIf="currentInvitation">
+            <!-- User Info -->
+            <div class="mb-3 p-3 bg-light rounded">
+              <h6 class="mb-1">{{ currentInvitation.invitedUserName }}</h6>
+              <p class="mb-1 text-muted small">
+                <i class="bi bi-envelope"></i> {{ currentInvitation.invitedUserEmail }}
+              </p>
+            </div>
+
+            <!-- Event Info -->
+            <div class="mb-3">
+              <strong>Événement:</strong>
+              <p class="mb-1">{{ currentInvitation.eventTitle }}</p>
+            </div>
+
+            <!-- Status -->
+            <div class="mb-3">
+              <strong>Statut:</strong>
+              <span [class]="getStatusBadgeClass(currentInvitation.status)"
+                    class="badge ms-2">
+                {{ getStatusText(currentInvitation.status) }}
+              </span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-grid gap-2">
+              <button
+                *ngIf="currentInvitation.status !== 'ATTENDED'"
+                class="btn btn-success"
+                (click)="markAsAttended()">
+                <i class="bi bi-check-circle"></i> Confirmer la présence
+              </button>
+
+              <button
+                class="btn btn-outline-primary"
+                (click)="scanAgain()">
+                <i class="bi bi-arrow-repeat"></i> Scanner un autre
+              </button>
+            </div>
+
+            <!-- Already Attended -->
+            <div *ngIf="currentInvitation.status === 'ATTENDED'" class="alert alert-success mt-2">
+              <i class="bi bi-check-circle"></i>
+              Présence déjà confirmée
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div class="card mt-3">
+        <div class="card-header bg-light">
+          <h6 class="card-title mb-0">
+            <i class="bi bi-info-circle"></i> Instructions
+          </h6>
+        </div>
+        <div class="card-body small">
+          <ul class="mb-0">
+            <li>Cliquez sur "Démarrer le scan" pour activer la caméra</li>
+            <li>Placez le QR code dans le cadre de scan</li>
+            <li>La validation est automatique</li>
+            <li>Confirmez la présence une fois le QR code validé</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

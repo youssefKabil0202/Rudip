@@ -1,0 +1,33 @@
+#qr-reader {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#qr-reader video {
+  border-radius: 8px;
+  border: 2px solid #dee2e6;
+}
+
+.card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.badge {
+  font-size: 0.75em;
+}
+
+/* Status badge colors */
+.bg-status-pending { background-color: #6c757d; }
+.bg-status-accepted { background-color: #198754; }
+.bg-status-declined { background-color: #dc3545; }
+.bg-status-attended { background-color: #0d6efd; }
+
+.btn {
+  border-radius: 6px;
+}
+
+.alert {
+  border-radius: 6px;
+}

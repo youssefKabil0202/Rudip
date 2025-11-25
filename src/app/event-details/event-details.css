@@ -1,0 +1,129 @@
+.event-details-container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Cover Image Styles */
+.cover-image-section {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+}
+
+.event-header.with-cover {
+  background: rgba(248, 249, 250, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(222, 226, 230, 0.8);
+}
+
+/* Google Maps Styles */
+.map-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.map-overlay .btn {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(13, 110, 253, 0.2);
+  color: #0d6efd;
+}
+
+.map-overlay .btn:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+/* General Styles */
+.event-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #6c757d;
+}
+
+.breadcrumb-item.active {
+  color: #495057;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+.cover-image-section {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+.cover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+}
+
+.no-cover-placeholder {
+  text-align: center;
+  color: #6c757d;
+}
+
+.event-header.with-cover {
+  background: rgba(248, 249, 250, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(222, 226, 230, 0.8);
+}

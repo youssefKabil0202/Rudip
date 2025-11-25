@@ -1,0 +1,157 @@
+.events-container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.events-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.search-box input {
+  padding-left: 45px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef !important;
+}
+
+.search-box input:focus {
+  background-color: white;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.event-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-row:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.table th {
+  border-top: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-group .btn {
+  border-radius: 6px;
+  margin: 0 2px;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+}
+
+.form-select:focus,
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+}
+/* Table image styles */
+.event-thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #f8f9fa;
+}
+
+/* Card layout styles */
+.event-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+.event-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #007bff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.event-badge.free {
+  background: #28a745;
+}
+
+.event-type-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.event-details {
+  margin-top: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Search box styles */
+.search-box {
+  position: relative;
+}
+
+.search-box .bi-search {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.search-box input {
+  padding-left: 40px;
+}

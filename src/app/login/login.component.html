@@ -1,0 +1,56 @@
+<div class="container vh-100 d-flex align-items-center">
+  <div class="row w-100 shadow rounded overflow-hidden bg-white">
+    <div class="col-md-6 d-none d-md-block p-0">
+      <img src="https://picsum.photos/800/800" alt="Image" class="img-fluid h-100 w-100 object-fit-cover">
+    </div>
+
+    <div class="col-md-6 d-flex justify-content-center align-items-center p-5">
+      <form class="w-100" style="max-width: 400px;" (ngSubmit)="onSubmit()">
+        <h3 class="text-center mb-4">Connexion</h3>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="user.email"
+            name="email"
+            required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            [(ngModel)]="user.password"
+            name="password"
+            required>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="isLoading">
+          @if (!isLoading) {
+          <span>Se connecter</span>
+          }
+          @if (isLoading) {
+          <div class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Chargement...</span>
+          </div>
+          }
+        </button>
+
+        <!-- Error Message -->
+        @if (errorMessage) {
+        <div class="alert alert-danger mt-3" role="alert">
+          {{ errorMessage }}
+        </div>
+        }
+      </form>
+    </div>
+  </div>
+</div>
