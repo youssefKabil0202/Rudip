@@ -97,142 +97,66 @@
   opacity: 0.8;
 }
 
-/* Main Content Styles */
+/* Main Content Styles - UPDATED */
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  min-height: 100vh; /* Ensure it takes full height */
 }
 
 .top-header {
   background: white;
   padding: 20px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
-.header-left h1 {
-  margin: 0;
-  color: #333;
-  font-size: 1.5rem;
-}
-
-.header-left p {
-  margin: 4px 0 0 0;
-  color: #666;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.notification-btn {
-  position: relative;
-}
-
-.notification-badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background: #f44336;
-  color: white;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logout-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Stats Grid */
+/* Stats Grid - UPDATED */
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 24px;
+  padding: 0 24px;
+  flex-shrink: 0; /* Prevent stats from shrinking */
 }
 
-.stat-card {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  transition: transform 0.2s, box-shadow 0.2s;
+.stats-grid .row {
+  margin: 0 -12px;
 }
 
-.stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+.stats-grid .col-xl-3 {
+  padding: 0 12px;
 }
 
-.stat-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.stat-icon.primary { background: #2196F3; }
-.stat-icon.accent { background: #FF9800; }
-.stat-icon.warn { background: #F44336; }
-.stat-icon.success { background: #4CAF50; }
-
-.stat-icon mat-icon {
-  font-size: 28px;
-  width: 28px;
-  height: 28px;
-}
-
-.stat-content h3 {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.stat-content p {
-  margin: 4px 0;
-  color: #666;
-}
-
-.stat-trend {
-  font-size: 0.8rem;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background: #E8F5E8;
-  color: #4CAF50;
-}
-
-/* Content Grid */
+/* Content Grid - UPDATED */
 .content-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
   padding: 0 24px 24px 24px;
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.content-grid .row {
+  flex: 1; /* Make row take available height */
+  margin: 0 -12px;
+}
+
+.content-grid .col-lg-6 {
+  padding: 0 12px;
+  display: flex;
 }
 
 .content-card {
+  flex: 1; /* Make cards fill their container */
+  display: flex;
+  flex-direction: column;
   border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .content-card mat-card-header {
   border-bottom: 1px solid #eee;
   padding-bottom: 16px;
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .content-card mat-card-title {
@@ -242,11 +166,18 @@
   font-size: 1.1rem;
 }
 
+.content-card mat-card-content {
+  flex: 1; /* Make content take available space */
+  display: flex;
+  flex-direction: column;
+}
+
 /* Activity List */
 .activity-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 1;
 }
 
 .activity-item {
@@ -291,6 +222,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 1;
 }
 
 .quick-stat {
@@ -337,6 +269,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  flex: 1;
 }
 
 .action-btn {
@@ -345,12 +278,28 @@
   gap: 8px;
   padding: 12px;
   height: auto;
+  min-height: 60px;
+}
+
+/* Ensure the app container takes full height */
+.app-container {
+  height: 100vh;
+  display: flex;
+}
+
+/* Make sure all containers use flex properly */
+.main-content > .container-fluid {
+  flex-shrink: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .content-grid {
-    grid-template-columns: 1fr;
+  .content-grid .row {
+    flex-direction: column;
+  }
+
+  .content-grid .col-lg-6 {
+    margin-bottom: 16px;
   }
 }
 
@@ -366,146 +315,28 @@
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+
+  .content-grid {
+    padding: 0 16px 16px 16px;
   }
 
   .actions-grid {
     grid-template-columns: 1fr;
   }
-  /* Events Section Styles */
-  .events-section {
-    margin-top: 16px;
-  }
+}
 
-  .event-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+/* Card specific styles to ensure proper height */
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-  .event-item {
-    display: flex;
-    gap: 16px;
-    padding: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-  }
-
-  .event-item:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  .event-image {
-    flex-shrink: 0;
-    width: 120px;
-    height: 80px;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  .event-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .event-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .event-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .event-title {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    flex: 1;
-  }
-
-  .event-description {
-    margin: 0;
-    color: #666;
-    font-size: 14px;
-    line-height: 1.4;
-  }
-
-  .event-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 8px;
-  }
-
-  .meta-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    color: #666;
-  }
-
-  .meta-item mat-icon {
-    font-size: 16px;
-    width: 16px;
-    height: 16px;
-  }
-
-  .event-organizer {
-    font-size: 12px;
-    color: #888;
-    margin-top: 4px;
-  }
-
-  .no-events, .loading-events {
-    text-align: center;
-    padding: 40px 20px;
-    color: #666;
-  }
-
-  .no-events mat-icon, .loading-events mat-icon {
-    font-size: 48px;
-    width: 48px;
-    height: 48px;
-    margin-bottom: 16px;
-    opacity: 0.5;
-  }
-
-  .total-count {
-    font-size: 12px;
-    color: #666;
-    margin-left: auto;
-  }
-
-  /* Ensure the content grid has proper layout */
-  .content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 24px;
-  }
-
-  @media (max-width: 768px) {
-    .content-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .event-item {
-      flex-direction: column;
-    }
-
-    .event-image {
-      width: 100%;
-      height: 120px;
-    }
-  }
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

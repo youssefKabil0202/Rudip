@@ -14,7 +14,7 @@ export interface User {
 })
 export class AuthService {
   private apiUrl = 'http://localhost:8080/api/auth';
-  public isLoggedIn = new BehaviorSubject<boolean>(this.hasToken());
+  public isLoggedIn$ = new BehaviorSubject<boolean>(this.hasToken()); // Renamed to isLoggedIn$
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -26,10 +26,9 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, user).pipe(
       tap((response: any) => {
         if (response.accessToken) {
-          // Store both tokens as returned by Spring Boot
           localStorage.setItem('accessToken', response.accessToken);
           localStorage.setItem('refreshToken', response.refreshToken);
-          this.isLoggedIn.next(true);
+          this.isLoggedIn$.next(true); // Updated to isLoggedIn$
         }
       })
     );
@@ -38,15 +37,19 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
-    this.isLoggedIn.next(false);
+    this.isLoggedIn$.next(false); // Updated to isLoggedIn$
     this.router.navigate(['/login']);
   }
 
   isAuthenticated(): Observable<boolean> {
-    return this.isLoggedIn.asObservable();
+    return this.isLoggedIn$.asObservable(); // Updated to isLoggedIn$
   }
 
   getToken(): string | null {
     return localStorage.getItem('accessToken');
+  }
+
+  isLoggedIn(): boolean {
+    return this.hasToken();
   }
 }

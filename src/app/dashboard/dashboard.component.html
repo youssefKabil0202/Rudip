@@ -1,59 +1,109 @@
-<div class="dashboard-container">
-  <!-- Sidebar -->
-<!--  <div class="sidebar">-->
-<!--    <div class="sidebar-header">-->
-<!--      <div class="logo">-->
-<!--        <mat-icon>dashboard</mat-icon>-->
-<!--        <span>AdminPanel</span>-->
-<!--      </div>-->
-<!--    </div>-->
+<div class="app-container d-flex vh-100">
+  <!-- Bootstrap Sidebar -->
+  <div class="sidebar text-white d-flex flex-column" style="width: 280px; background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);">
+    <!-- Sidebar Header -->
+    <div class="sidebar-header border-bottom border-white border-opacity-25 p-4">
+      <div class="logo d-flex align-items-center gap-3">
+        <div class="logo-icon bg-white bg-opacity-10 rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+          <mat-icon class="text-white fs-5">admin_panel_settings</mat-icon>
+        </div>
+        <div class="logo-text d-flex flex-column">
+          <span class="fw-bold fs-5">AdminPanel</span>
+          <span class="text-white text-opacity-75 small">Dashboard</span>
+        </div>
+      </div>
+    </div>
 
-<!--    <nav class="sidebar-nav">-->
-<!--      <a class="nav-item active" routerLink="/dashboard">-->
-<!--        <mat-icon>dashboard</mat-icon>-->
-<!--        <span>Tableau de Bord</span>-->
-<!--      </a>-->
-<!--      <a class="nav-item" routerLink="/users">-->
-<!--        <mat-icon>people</mat-icon>-->
-<!--        <span>Utilisateurs</span>-->
-<!--      </a>-->
-<!--      <a class="nav-item" routerLink="/events" routerLinkActive="active">-->
-<!--        <mat-icon>event</mat-icon>-->
-<!--        <span>Événements</span>-->
-<!--      </a>-->
-<!--      <a class="nav-item">-->
-<!--        <mat-icon>bar_chart</mat-icon>-->
-<!--        <span>Analytics</span>-->
-<!--      </a>-->
-<!--      <a class="nav-item">-->
-<!--        <mat-icon>shopping_cart</mat-icon>-->
-<!--        <span>Commandes</span>-->
-<!--      </a>-->
-<!--      <a class="nav-item">-->
-<!--        <mat-icon>inventory</mat-icon>-->
-<!--        <span>Produits</span>-->
-<!--      </a>-->
-<!--      <a class="nav-item">-->
-<!--        <mat-icon>settings</mat-icon>-->
-<!--        <span>Paramètres</span>-->
-<!--      </a>-->
-<!--    </nav>-->
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav flex-grow-1 p-3 overflow-auto">
+      <!-- Main Menu Section -->
+      <div class="nav-section mb-4">
+        <span class="nav-section-title text-white text-opacity-50 small fw-semibold text-uppercase mb-2 d-block">MAIN MENU</span>
 
-<!--    <div class="sidebar-footer">-->
-<!--      <div class="user-info">-->
-<!--        <div class="user-avatar">-->
-<!--          <mat-icon>account_circle</mat-icon>-->
-<!--        </div>-->
-<!--        <div class="user-details">-->
-<!--          <strong>{{ username }}</strong>-->
-<!--          <span>{{ userRole }}</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+        <a class="nav-item d-flex align-items-center text-white text-decoration-none py-2 px-3 rounded-3 mb-2"
+           routerLink="/dashboard" routerLinkActive="active">
+          <div class="nav-icon me-3">
+            <mat-icon class="fs-6">dashboard</mat-icon>
+          </div>
+          <span class="nav-label flex-grow-1">Tableau de Bord</span>
+          <div class="nav-indicator bg-success rounded-circle" style="width: 6px; height: 6px;"></div>
+        </a>
 
-  <!-- Main Content -->
-  <div class="main-content">
+        <a class="nav-item d-flex align-items-center text-white text-decoration-none py-2 px-3 rounded-3 mb-2"
+           routerLink="/events" routerLinkActive="active">
+          <div class="nav-icon me-3">
+            <mat-icon class="fs-6">event</mat-icon>
+          </div>
+          <span class="nav-label flex-grow-1">Événements</span>
+        </a>
+      </div>
+
+      <!-- Analytics Section -->
+      <div class="nav-section mb-4">
+        <span class="nav-section-title text-white text-opacity-50 small fw-semibold text-uppercase mb-2 d-block">ANALYTICS</span>
+
+        <a class="nav-item d-flex align-items-center text-white text-decoration-none py-2 px-3 rounded-3 mb-2">
+          <div class="nav-icon me-3">
+            <mat-icon class="fs-6">bar_chart</mat-icon>
+          </div>
+          <span class="nav-label flex-grow-1">Analytics</span>
+        </a>
+
+        <a class="nav-item d-flex align-items-center text-white text-decoration-none py-2 px-3 rounded-3 mb-2">
+          <div class="nav-icon me-3">
+            <mat-icon class="fs-6">shopping_cart</mat-icon>
+          </div>
+          <span class="nav-label flex-grow-1">Commandes</span>
+          <span class="nav-badge bg-danger rounded-pill px-2 py-1 small ms-2">12</span>
+        </a>
+
+        <a class="nav-item d-flex align-items-center text-white text-decoration-none py-2 px-3 rounded-3 mb-2">
+          <div class="nav-icon me-3">
+            <mat-icon class="fs-6">inventory</mat-icon>
+          </div>
+          <span class="nav-label flex-grow-1">Produits</span>
+        </a>
+      </div>
+
+      <!-- System Section -->
+      <div class="nav-section mb-4">
+        <span class="nav-section-title text-white text-opacity-50 small fw-semibold text-uppercase mb-2 d-block">SYSTEM</span>
+
+        <a class="nav-item d-flex align-items-center text-white text-decoration-none py-2 px-3 rounded-3 mb-2">
+          <div class="nav-icon me-3">
+            <mat-icon class="fs-6">settings</mat-icon>
+          </div>
+          <span class="nav-label flex-grow-1">Paramètres</span>
+        </a>
+
+        <a class="nav-item d-flex align-items-center text-white text-decoration-none py-2 px-3 rounded-3 mb-2">
+          <div class="nav-icon me-3">
+            <mat-icon class="fs-6">help</mat-icon>
+          </div>
+          <span class="nav-label flex-grow-1">Support</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- User Profile Section -->
+    <div class="sidebar-footer border-top border-white border-opacity-25 p-3">
+      <div class="user-profile d-flex align-items-center gap-3">
+        <div class="user-avatar bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+          <mat-icon class="text-white text-opacity-75">account_circle</mat-icon>
+        </div>
+        <div class="user-details flex-grow-1">
+          <div class="user-name fw-semibold small">{{ username }}</div>
+          <div class="user-role text-white text-opacity-75 small">{{ userRole }}</div>
+        </div>
+        <button class="btn btn-link p-0 text-white text-opacity-50" (click)="logout()">
+          <mat-icon class="fs-6">logout</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content flex-grow-1 overflow-auto bg-light">
     <!-- Top Header -->
     <header class="top-header bg-white border-bottom shadow-sm py-3">
       <div class="container-fluid">
@@ -67,12 +117,12 @@
       </div>
     </header>
 
-    <!-- Le reste de votre contenu dashboard reste inchangé -->
+    <!-- Welcome Alert -->
     <div class="container-fluid mt-4">
       <div class="alert alert-primary border-0 shadow-sm">
         <div class="d-flex align-items-center">
           <div class="flex-grow-1">
-            <h4 class="alert-heading mb-1 fw-bold">Bonjour, Administrateur !</h4>
+            <h4 class="alert-heading mb-1 fw-bold">Bonjour, {{ username }} !</h4>
             <p class="mb-0 fs-6">Bienvenue sur votre tableau de bord</p>
           </div>
           <i class="bi bi-emoji-smile-fill fs-1 text-primary ms-3"></i>
@@ -80,6 +130,7 @@
       </div>
     </div>
 
+    <!-- Stats Grid -->
     <div class="stats-grid container-fluid mt-4">
       <div class="row g-4">
         <!-- Card 1: Utilisateurs -->
@@ -128,143 +179,154 @@
       </div>
     </div>
 
-    <!-- Main Content Area -->
-    <div class="content-grid">
-      <!-- Recent Activity -->
-      <mat-card class="content-card">
-        <mat-card-header>
-          <mat-card-title>
-            <mat-icon>schedule</mat-icon>
-            Activité Récente
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="activity-list">
-            <div class="activity-item">
-              <div class="activity-icon success">
-                <mat-icon>login</mat-icon>
+    <!-- Content Grid -->
+    <div class="content-grid container-fluid mt-4">
+      <div class="row g-4">
+        <!-- Recent Activity -->
+        <div class="col-lg-6">
+          <mat-card class="content-card h-100">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>schedule</mat-icon>
+                Activité Récente
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="activity-icon success">
+                    <mat-icon>login</mat-icon>
+                  </div>
+                  <div class="activity-details">
+                    <div class="activity-title">Connexion réussie</div>
+                    <div class="activity-time">Maintenant</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon primary">
+                    <mat-icon>update</mat-icon>
+                  </div>
+                  <div class="activity-details">
+                    <div class="activity-title">Profile mis à jour</div>
+                    <div class="activity-time">Il y a 2 heures</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon accent">
+                    <mat-icon>security</mat-icon>
+                  </div>
+                  <div class="activity-details">
+                    <div class="activity-title">Session sécurisée</div>
+                    <div class="activity-time">Il y a 1 jour</div>
+                  </div>
+                </div>
               </div>
-              <div class="activity-details">
-                <div class="activity-title">Connexion réussie</div>
-                <div class="activity-time">Maintenant</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon primary">
-                <mat-icon>update</mat-icon>
-              </div>
-              <div class="activity-details">
-                <div class="activity-title">Profile mis à jour</div>
-                <div class="activity-time">Il y a 2 heures</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon accent">
-                <mat-icon>security</mat-icon>
-              </div>
-              <div class="activity-details">
-                <div class="activity-title">Session sécurisée</div>
-                <div class="activity-time">Il y a 1 jour</div>
-              </div>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
+            </mat-card-content>
+          </mat-card>
+        </div>
 
-      <!-- Quick Stats -->
-      <mat-card class="content-card">
-        <mat-card-header>
-          <mat-card-title>
-            <mat-icon>analytics</mat-icon>
-            Statistiques Rapides
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="quick-stats">
-            <div class="quick-stat">
-              <span class="stat-label">Nouveaux Utilisateurs</span>
-              <span class="stat-value">45</span>
-            </div>
-            <div class="quick-stat">
-              <span class="stat-label">Commandes</span>
-              <span class="stat-value">128</span>
-            </div>
-            <div class="quick-stat">
-              <span class="stat-label">Taux de Conversion</span>
-              <span class="stat-value">3.2%</span>
-            </div>
-            <div class="quick-stat">
-              <span class="stat-label">Satisfaction</span>
-              <span class="stat-value">94%</span>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
+        <!-- User Info Card -->
+        <div class="col-lg-6">
+          <mat-card class="content-card user-card h-100">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>account_circle</mat-icon>
+                Informations Utilisateur
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="user-detail">
+                <mat-icon>person</mat-icon>
+                <div>
+                  <strong>Nom:</strong> {{ username }}
+                </div>
+              </div>
+              <div class="user-detail">
+                <mat-icon>badge</mat-icon>
+                <div>
+                  <strong>Rôle:</strong> {{ userRole }}
+                </div>
+              </div>
+              <div class="user-detail">
+                <mat-icon>email</mat-icon>
+                <div>
+                  <strong>Email:</strong> {{ userEmail }}
+                </div>
+              </div>
+              <div class="user-detail">
+                <mat-icon>calendar_today</mat-icon>
+                <div>
+                  <strong>Membre depuis:</strong> Jan 2024
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
 
-      <!-- User Info Card -->
-      <mat-card class="content-card user-card">
-        <mat-card-header>
-          <mat-card-title>
-            <mat-icon>account_circle</mat-icon>
-            Informations Utilisateur
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="user-detail">
-            <mat-icon>person</mat-icon>
-            <div>
-              <strong>Nom:</strong> {{ username }}
-            </div>
-          </div>
-          <div class="user-detail">
-            <mat-icon>badge</mat-icon>
-            <div>
-              <strong>Rôle:</strong> {{ userRole }}
-            </div>
-          </div>
-          <div class="user-detail">
-            <mat-icon>email</mat-icon>
-            <div>
-              <strong>Email:</strong> {{ userEmail }}
-            </div>
-          </div>
-          <div class="user-detail">
-            <mat-icon>calendar_today</mat-icon>
-            <div>
-              <strong>Membre depuis:</strong> Jan 2024
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
+        <!-- Quick Stats -->
+        <div class="col-lg-6">
+          <mat-card class="content-card h-100">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>analytics</mat-icon>
+                Statistiques Rapides
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="quick-stats">
+                <div class="quick-stat">
+                  <span class="stat-label">Nouveaux Utilisateurs</span>
+                  <span class="stat-value">45</span>
+                </div>
+                <div class="quick-stat">
+                  <span class="stat-label">Commandes</span>
+                  <span class="stat-value">128</span>
+                </div>
+                <div class="quick-stat">
+                  <span class="stat-label">Taux de Conversion</span>
+                  <span class="stat-value">3.2%</span>
+                </div>
+                <div class="quick-stat">
+                  <span class="stat-label">Satisfaction</span>
+                  <span class="stat-value">94%</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
 
-      <mat-card class="content-card">
-        <mat-card-header>
-          <mat-card-title>
-            <mat-icon>flash_on</mat-icon>
-            Actions Rapides
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="actions-grid">
-            <button mat-raised-button color="primary" class="action-btn">
-              <mat-icon>add</mat-icon>
-              Nouveau Utilisateur
-            </button>
-            <button mat-raised-button color="accent" class="action-btn">
-              <mat-icon>report</mat-icon>
-              Générer Rapport
-            </button>
-            <button mat-raised-button class="action-btn">
-              <mat-icon>settings</mat-icon>
-              Paramètres
-            </button>
-            <button mat-raised-button class="action-btn">
-              <mat-icon>help</mat-icon>
-              Support
-            </button>
-          </div>
-        </mat-card-content>
-      </mat-card>
+        <!-- Quick Actions -->
+        <div class="col-lg-6">
+          <mat-card class="content-card h-100">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>flash_on</mat-icon>
+                Actions Rapides
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="actions-grid">
+                <button mat-raised-button color="primary" class="action-btn">
+                  <mat-icon>add</mat-icon>
+                  Nouveau Utilisateur
+                </button>
+                <button mat-raised-button color="accent" class="action-btn">
+                  <mat-icon>report</mat-icon>
+                  Générer Rapport
+                </button>
+                <button mat-raised-button class="action-btn">
+                  <mat-icon>settings</mat-icon>
+                  Paramètres
+                </button>
+                <button mat-raised-button class="action-btn">
+                  <mat-icon>help</mat-icon>
+                  Support
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
     </div>
   </div>
 </div>

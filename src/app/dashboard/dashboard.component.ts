@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router'; // Only one import line
 
 // Add these Material imports
 import { MatCardModule } from '@angular/material/card';
@@ -21,7 +21,8 @@ import { EventService, EventResponse, EventsPage } from '../event.service';
   styleUrls: ['./dashboard.component.css'],
   imports: [
     CommonModule,
-    // Add Material modules here
+    RouterLink, // Add this
+    RouterLinkActive, // Add this
     MatCardModule,
     MatIconModule,
     MatButtonModule,
@@ -51,6 +52,7 @@ export class DashboardComponent implements OnInit {
     this.loadEvents();
   }
 
+  // ... rest of your existing methods remain the same
   getUserInfo(): void {
     const token = localStorage.getItem('accessToken');
 
@@ -73,7 +75,6 @@ export class DashboardComponent implements OnInit {
       }
     }
   }
-
 
   loadEvents() {
     this.loading = true;
